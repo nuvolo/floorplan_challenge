@@ -18,72 +18,13 @@
         <img src="./res/core/nuvolo_logo.png"/>
       </div>
     </div>
-
+    <input type='file' onchange='openFile(event)'>
     <div class="map" id="map" style="height: 800px;">
     </div>
 
 
-<script src="./res/paris.js"></script>
-
-    <script>
-
-    var map = L.map('map', {
-      //crs: L.CRS.Simple,
-      crs: L.CRS.EPSG3857,
-      //zoom: 0,
-    //  minZoom: -1,
-    //  maxZoom: 3,
-      //renderer: L.canvas()
-    });
-
-    //var bounds = [[0,0], [1000,1000]];
-    //var image = L.imageOverlay('./res/pics/NW35-1.jpg', bounds).addTo(map);
-
-    var paris_geo = parisjson.returnObj.region.children["campus"].children["site"].children["floor"].layer_data[0].feature_groups["ff85344c0f47a200b7fe85ace1050e03"];
-
-    var geojson_layer = L.geoJSON(paris_geo);
-    //L.geoJSON(geoj).addTo(map);
-    geojson_layer.addTo(map);
-    map.fitBounds(geojson_layer.getBounds());
-
-/*
-    var bl = L.latLng([ 0, 0 ]);
-    L.marker(bl, {title:'Bottom Left'}).addTo(map);
-    var tl = L.latLng([ 1000, 0 ]);
-    L.marker(tl, {title:'Top Left'}).addTo(map);
-    var br = L.latLng([ 0, 1000 ]);
-    L.marker(br, {title:'Bottom Right'}).addTo(map);
-    var tr = L.latLng([ 1000, 1000 ]);
-L.marker(tr, {title:'Top Right'}).addTo(map);
-
-
-//TESTING RANDOM MARKERS
-
-var maxCount = 300;
-var count = 0;
-
-for(var i = 0; i < maxCount; i++){
-
-   var x = Math.floor(Math.random() * 1000);
-   var y = Math.floor(Math.random() * 1000);
-
-   addMarker(map, x, y, i.toString());
-
-}*/
-
-function addMarker(map, lat, long, titleStr){
-  var mark = L.latLng([lat,long]);
-  L.marker(mark, {title: titleStr}).addTo(map);
-}
-
-
-
-
-
-//map.fitBounds(bounds);
-
-    </script>
-
+    <script src="./res/paris.js"></script>
+    <script src="./res/core/core.js"></script>
 
 
   </body>
